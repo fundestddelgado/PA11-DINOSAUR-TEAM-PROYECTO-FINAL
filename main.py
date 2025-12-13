@@ -31,7 +31,7 @@ MODELO_FILENAME = "modelo_deteccion_rostros.h5"
 CLASSES_FILENAME = "clase_indices.json"
 INPUT_DIR = "./train/"
 OUTPUT_DIR = "./dataset_rostros/" 
-UMBRAL_CONF = 0.95
+UMBRAL_CONF = 0.90
 CLASE_NO_FAMILIAR = 'No familiar'
 LOGO_FILENAME = "VisualSupportLOGO.jpeg" 
 
@@ -115,7 +115,7 @@ def cargar_imagen_url(url):
 class DeteccionRostrosApp:
     def __init__(self, master):
         self.master = master
-        master.title("Sistema de Detección de Rostros - Visual Support")
+        master.title("Sistema de Detección de Rostros - VisualSupport")
         
         # --- Configuración para Adaptarse a la Pantalla ---
         screen_width = master.winfo_screenwidth()
@@ -165,6 +165,7 @@ class DeteccionRostrosApp:
 
     def redimensionar_logo_en_evento(self, event):
         """Redimensiona el logo para que quepa en el ancho de la ventana."""
+        # Esta función es llamada SOLO por el evento <Configure> de Tkinter
         if event.widget == self.master and self.logo_original:
             new_width = event.width - 40 # 40px de margen
             self.mostrar_logo(new_width)
@@ -243,6 +244,7 @@ class DeteccionRostrosApp:
         self.log(f"Comenzando entrenamiento con {self.num_clases} clases...", tag="ENTRENANDO")
         modelo_cnn.fit(train_gen, validation_data=val_gen, epochs=100, callbacks=callbacks, verbose=1)
         
+        # El UserWarning sobre el formato HDF5 se mantiene (es una advertencia de Keras)
         modelo_cnn.save(MODELO_FILENAME)
         with open(CLASSES_FILENAME, 'w') as f:
             json.dump(self.class_indices, f)
@@ -287,7 +289,6 @@ class DeteccionRostrosApp:
                 # Lógica de UMBRAL (Se mantiene para clasificar final_class)
                 if predicted_class_name != CLASE_NO_FAMILIAR and confidence < UMBRAL_CONF:
                     final_class = CLASE_NO_FAMILIAR.upper()
-                    # El log_message interno se mantiene por si acaso, pero NO se reporta al log principal
                     log_message = f"CLASE FORZADA: {final_class} | Confianza: {confidence:.4f} (Original: {predicted_class_name.upper()})"
                 else:
                     final_class = predicted_class_name.upper()
@@ -315,8 +316,13 @@ class DeteccionRostrosApp:
         if success:
             self.log(f"Operación Exitosa: {message}. Clases encontradas: {self.num_clases}", tag="ÉXITO")
             self.update_clases_display()
+            
+            # --- CORRECCIÓN DEL ERROR ---
             self.master.update_idletasks()
-            self.redimensionar_logo_en_evento(self.master)
+            # Llamar directamente a mostrar_logo con el ancho actual, NO a redimensionar_logo_en_evento
+            self.mostrar_logo(self.master.winfo_width()) 
+            # ---------------------------
+            
         else:
             messagebox.showerror("Error de Modelo", message)
             self.log(f"Fallo de Operación: {message}", tag="ERROR")
@@ -510,7 +516,7 @@ class DeteccionRostrosApp:
             # Formato para vocalización
             speech_messages.append(f"Rostro número {i+1} identificado como {clase}, persona {speech_label}.")
 
-            # --- LA LÍNEA self.log(det['log'], tag="DETECCIÓN") HA SIDO ELIMINADA PARA SIMPLIFICAR EL LOG ---
+            # El log detallado se suprimió aquí para simplificar el Registro de Eventos
 
         # --- Configuración Visual ---
         final_text = " | ".join(visual_messages)
