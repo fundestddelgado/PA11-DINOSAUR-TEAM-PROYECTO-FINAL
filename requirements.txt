@@ -1,0 +1,9 @@
+numpy
+os
+shutil
+requests
+bs4
+mtcnn
+matplotlib
+Pillow
+tensorflow
