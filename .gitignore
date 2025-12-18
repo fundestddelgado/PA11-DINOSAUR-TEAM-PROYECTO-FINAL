@@ -1,4 +1,4 @@
-# Entornos virtuales (el motivo de tu consulta)
+# Entornos virtuales
 .venv/
 venv/
 ENV/
