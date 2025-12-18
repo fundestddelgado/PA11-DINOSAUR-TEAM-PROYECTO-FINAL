@@ -1,7 +1,7 @@
 # PA11-DINOSAUR-TEAM-PROYECTO-FINAL
-REPOSITORIO PARA EL PROYECTO FINAL Y EL HACKATON
+REPOSITORIO PARA EL PROYECTO FINAL Y EL HACKATHON
 
-INFORMACIÓN GENERAL DEL PROYECTO:
+INFORMACIÓN GENERAL DEL PROYECTO FINAL:
 
 1. Planteamiento del Problema
     El desafío principal abordado es la falta de autonomía e información contextual que enfrentan las personas con discapacidad visual en entornos sociales y domésticos. La identificación rápida y fiable de personas en su cercanía es crucial para la seguridad, la interacción social y la calidad de vida.
@@ -46,3 +46,4 @@ INFORMACIÓN GENERAL DEL PROYECTO:
 
     6. Salida Audible (Accesibilidad): De forma automática, el sistema vocaliza el resultado completo (ej., "Análisis completado. Se detectaron dos rostros. Rostro número uno identificado como Juan Pérez, persona conocida..."). Esta predicción puede repetirse en cualquier momento con el botón "Escuchar Predicción".
 
+INFORMACIÓN GENERAL DEL PROYECTO DE HACKATHON:
