@@ -40,3 +40,31 @@ INFORMACIÓN GENERAL DEL PROYECTO FINAL:
     6. Salida Audible (Accesibilidad): De forma automática, el sistema vocaliza el resultado completo (ej., "Análisis completado. Se detectaron dos rostros. Rostro número uno identificado como Juan Pérez, persona conocida..."). Esta predicción puede repetirse en cualquier momento con el botón "Escuchar Predicción".
 
 INFORMACIÓN GENERAL DEL PROYECTO DE HACKATHON:
+1. Planteamiento del Problema
+    - Actualmente, el 71% las personas con discapacidad visual en el mundo, enfrentan barreras para acceder al mercado laboral debido a la dificultad de interactuar con el entorno físico en el puesto de trabajo.
+    - El problema central no es la falta de capacidad del individuo, sino que el 80% de la información en un puesto de trabajo (señalética, ubicación de objetos, movimiento de personas) es puramente visual, lo que excluye automáticamente a quien no percibe estos datos.
+    - Esta exclusión genera un ciclo de dependencia económica de terceros o del Estado.
+    - Aunque existen herramientas como el bastón o lectores de pantalla para computadoras, falta una solución en tiempo real para el entorno físico dinámico, donde los objetos cambian de lugar constantemente.
+
+2. Objetivos del Proyecto
+
+    1. Dotar de autonomía al trabajador para que pueda moverse y realizar tareas en un entorno laboral
+    2. Garantizar al usuario seguridad, mediante la detección de obstáculos y peligros
+    3. Aumentar la posibilidades de trabajo para las personas con discapacidad visual
+    4. Disminuir la dependencia social y económica de las personas con discapacidad visual
+    5. Desarrollar una herramienta de soporte visual y auditivo que utilice la visión por computadora para interpretar el entorno y comunique esta información de manera audible, eliminando la barrera de la visión.
+
+3. Herramientas utilizadas en el proyecto
+
+    1. Python
+    2. Git: Sistema de control de versiones para el desarrollo del proyecto.
+    3. Github: Sitio web para alojar el repositorio del proyecto.
+    4. Visual Studio Code: Editor de código para el desarrollo del proyecto.
+    5. Flet: Framework de desarrollo de interfaces Web, Escritorio y Mobile utilizando exclusivemente Python.
+    6. YOLO: Sistema de detección de objetos en imágenes
+
+4.  Resultados del Proyecto
+    1.  App Multiplataforma: Creación de una aplicación funcional para Web y Móvil utilizando Python y Flet.
+    2. Precisión alta en la detección de objetos: Utilización de la librería YOLO para detectar objetos en imágenes.
+    3. Audio  en directo: Utilización de la librería pyttsx3 para realizar la vocalización de mensajes.
+    4. Asistencia en tiempo real: Utilización de modelo para realizar la identificación de voz y la interpretación de mensajes.
