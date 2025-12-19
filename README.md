@@ -40,4 +40,3 @@ INFORMACIÓN GENERAL DEL PROYECTO FINAL:
     6. Salida Audible (Accesibilidad): De forma automática, el sistema vocaliza el resultado completo (ej., "Análisis completado. Se detectaron dos rostros. Rostro número uno identificado como Juan Pérez, persona conocida..."). Esta predicción puede repetirse en cualquier momento con el botón "Escuchar Predicción".
 
 INFORMACIÓN GENERAL DEL PROYECTO DE HACKATHON:
-
